@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 50" fill="none">
+  <!-- Logo mark - rounded square with 3IT -->
+  <rect x="2" y="5" width="40" height="40" rx="8" fill="#2563eb"/>
+
+  <!-- 3IT text in logo mark -->
+  <text x="22" y="32" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="16" font-weight="700" fill="white">3IT</text>
+
+  <!-- Services text - white for dark backgrounds -->
+  <text x="52" y="33" font-family="Inter, system-ui, sans-serif" font-size="24" font-weight="700" fill="white">Services</text>
+</svg>
