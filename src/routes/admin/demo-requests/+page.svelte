@@ -69,7 +69,7 @@
   <!-- Table -->
   <div class="backdrop-blur-xl bg-white/5 border border-white/10 rounded-2xl overflow-hidden">
     {#if data.demos.length === 0}
-      <p class="text-gray-500 text-center py-12">No demo requests found</p>
+      <p class="text-gray-400 text-center py-12">No demo requests found</p>
     {:else}
       <table class="w-full">
         <thead>
@@ -106,7 +106,7 @@
                     minute: '2-digit'
                   })}
                 {:else}
-                  <span class="text-gray-500">—</span>
+                  <span class="text-gray-400">—</span>
                 {/if}
               </td>
               <td class="px-6 py-4">

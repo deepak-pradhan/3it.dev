@@ -41,7 +41,7 @@
     <ol class="flex items-center gap-2 text-sm">
       {#each breadcrumbs as crumb, i}
         {#if i > 0}
-          <li class="text-gray-500" aria-hidden="true">
+          <li class="text-gray-600 dark:text-gray-400" aria-hidden="true">
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
             </svg>
@@ -49,9 +49,9 @@
         {/if}
         <li>
           {#if i === breadcrumbs.length - 1}
-            <span class="text-gray-400" aria-current="page">{crumb.label}</span>
+            <span class="text-gray-600 dark:text-gray-400" aria-current="page">{crumb.label}</span>
           {:else}
-            <a href={crumb.href} class="text-gray-500 hover:text-white transition-colors">
+            <a href={crumb.href} class="text-gray-600 dark:text-gray-400 hover:text-white transition-colors">
               {crumb.label}
             </a>
           {/if}

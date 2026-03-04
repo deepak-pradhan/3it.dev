@@ -27,7 +27,7 @@
   <p class="text-gray-400 text-sm">
     Editor component requires @tiptap/* packages to be installed.
   </p>
-  <p class="text-gray-500 text-xs mt-2">
+  <p class="text-gray-600 dark:text-gray-400 text-xs mt-2">
     Run: npm install @tiptap/core @tiptap/starter-kit @tiptap/extension-placeholder @tiptap/extension-link
   </p>
 </div>

@@ -70,7 +70,7 @@
             </div>
             <h2 class="text-2xl font-medium mb-2 dark:text-white">Demo Request Confirmed</h2>
             <p class="text-gray-600 dark:text-gray-300">We'll be in touch within 24 hours to schedule your demo.</p>
-            <p class="text-gray-500 text-sm mt-4">A confirmation email has been sent to your inbox.</p>
+            <p class="text-gray-600 dark:text-gray-400 text-sm mt-4">A confirmation email has been sent to your inbox.</p>
           </div>
         {:else if showVerification}
           <form
@@ -247,22 +247,22 @@
       <div class="glass rounded-2xl p-6">
         <div class="text-xs text-gray-400 uppercase tracking-wider mb-1">Platform</div>
         <div class="text-lg dark:text-white">Phyto Platform</div>
-        <p class="text-sm text-gray-500 mt-2">Traditional Medicine Intelligence</p>
+        <p class="text-sm text-gray-600 dark:text-gray-400 mt-2">Traditional Medicine Intelligence</p>
       </div>
       <div class="glass rounded-2xl p-6">
         <div class="text-xs text-gray-400 uppercase tracking-wider mb-3">Data Coverage</div>
         <div class="space-y-3">
           <div>
             <div class="text-2xl font-bold text-emerald-500">14K+</div>
-            <div class="text-sm text-gray-500">Medicinal Plants</div>
+            <div class="text-sm text-gray-600 dark:text-gray-400">Medicinal Plants</div>
           </div>
           <div>
             <div class="text-2xl font-bold text-emerald-500">908K+</div>
-            <div class="text-sm text-gray-500">Compounds</div>
+            <div class="text-sm text-gray-600 dark:text-gray-400">Compounds</div>
           </div>
           <div>
             <div class="text-2xl font-bold text-emerald-500">833K+</div>
-            <div class="text-sm text-gray-500">Traditional Uses</div>
+            <div class="text-sm text-gray-600 dark:text-gray-400">Traditional Uses</div>
           </div>
         </div>
       </div>

@@ -65,7 +65,7 @@
   <div class="space-y-4">
     {#if data.contacts.length === 0}
       <div class="backdrop-blur-xl bg-white/5 border border-white/10 rounded-2xl p-12 text-center">
-        <p class="text-gray-500">No contact messages found</p>
+        <p class="text-gray-400">No contact messages found</p>
       </div>
     {:else}
       {#each data.contacts as contact}

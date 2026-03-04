@@ -52,7 +52,7 @@
         <a href="/admin/demo-requests" class="text-sm text-emerald-500 hover:text-emerald-400">View all</a>
       </div>
       {#if data.recentDemos.length === 0}
-        <p class="text-gray-500 text-center py-8">No demo requests yet</p>
+        <p class="text-gray-400 text-center py-8">No demo requests yet</p>
       {:else}
         <div class="space-y-4">
           {#each data.recentDemos as demo}
@@ -81,7 +81,7 @@
         <a href="/admin/contacts" class="text-sm text-emerald-500 hover:text-emerald-400">View all</a>
       </div>
       {#if data.recentContacts.length === 0}
-        <p class="text-gray-500 text-center py-8">No contact submissions yet</p>
+        <p class="text-gray-400 text-center py-8">No contact submissions yet</p>
       {:else}
         <div class="space-y-4">
           {#each data.recentContacts as contact}

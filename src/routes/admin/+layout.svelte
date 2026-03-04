@@ -30,7 +30,7 @@
         <span class="text-xl font-bold tracking-tight text-white">3IT</span>
         <span class="text-xl font-light text-emerald-500">.dev</span>
       </a>
-      <div class="text-xs text-gray-500 mt-1">Admin Panel</div>
+      <div class="text-xs text-gray-400 mt-1">Admin Panel</div>
     </div>
 
     <nav class="space-y-2 flex-1">
