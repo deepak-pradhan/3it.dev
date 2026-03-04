@@ -121,12 +121,6 @@
     <!-- Contact Info -->
     <div class="space-y-4">
       <div class="glass rounded-2xl p-6">
-        <div class="text-xs text-gray-400 uppercase tracking-wider mb-1">Email</div>
-        <a href="mailto:info@3it.dev" class="text-lg dark:text-white hover:text-primary-400 transition-colors">
-          info@3it.dev
-        </a>
-      </div>
-      <div class="glass rounded-2xl p-6">
         <div class="text-xs text-gray-400 uppercase tracking-wider mb-1">Location</div>
         <div class="text-lg dark:text-white">Charlotte, NC</div>
       </div>

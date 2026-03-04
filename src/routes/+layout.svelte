@@ -137,8 +137,8 @@
             <div>
               <div class="text-xs text-gray-400 uppercase tracking-wider mb-3">Contact</div>
               <div class="flex flex-col gap-2 text-sm text-gray-600 dark:text-gray-300">
-                <a href="mailto:hello@3it.dev" class="hover:text-white transition-colors">
-                  hello@3it.dev
+                <a href="/contact" class="hover:text-white transition-colors">
+                  Get in touch
                 </a>
               </div>
             </div>
