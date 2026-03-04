@@ -23,7 +23,7 @@
   <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
     <div class="md:col-span-2">
       <div class="glass rounded-2xl p-8">
-        <div class="prose prose-lg dark:prose-invert max-w-none text-gray-600 dark:text-gray-300">
+        <div class="space-y-6 text-gray-600 dark:text-gray-300 text-lg leading-relaxed">
           <p>
             3IT.dev represents a paradigm shift in software development, combining proven enterprise patterns
             with AI-human collaboration to achieve unprecedented development acceleration.
