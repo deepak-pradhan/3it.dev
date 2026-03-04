@@ -1,0 +1,43 @@
+<svg viewBox="0 0 180 48" xmlns="http://www.w3.org/2000/svg">
+  <!--
+    CONCEPT C: TRANSFORMATION
+    A "3" that flows into an arrow, representing
+    the transformation from idea to deployed product.
+    Shows process, flow, and completion.
+  -->
+  <defs>
+    <linearGradient id="transformGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#10b981"/>
+      <stop offset="100%" stop-color="#34d399"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Logomark: Flowing "3" with arrow -->
+  <g id="mark">
+    <!-- The "3" shape that flows into arrow -->
+    <path d="M 6 10
+             Q 24 10 24 17
+             Q 24 24 12 24
+             Q 24 24 24 31
+             Q 24 38 6 38"
+          stroke="url(#transformGrad)" stroke-width="3.5" fill="none"
+          stroke-linecap="round" stroke-linejoin="round"/>
+
+    <!-- Arrow emerging from the 3 -->
+    <path d="M 28 24 L 42 24"
+          stroke="#10b981" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <path d="M 37 19 L 42 24 L 37 29"
+          stroke="#10b981" stroke-width="3" fill="none"
+          stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <!-- Typography -->
+  <text x="54" y="33"
+        font-family="system-ui, -apple-system, sans-serif"
+        font-size="28" font-weight="700" fill="currentColor"
+        letter-spacing="-1">3IT</text>
+  <text x="110" y="33"
+        font-family="system-ui, -apple-system, sans-serif"
+        font-size="28" font-weight="400" fill="#10b981"
+        letter-spacing="-1">.dev</text>
+</svg>

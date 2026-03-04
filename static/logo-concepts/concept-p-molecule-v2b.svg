@@ -1,0 +1,78 @@
+<svg viewBox="0 0 200 48" xmlns="http://www.w3.org/2000/svg">
+  <!--
+    CONCEPT P v2b: MOLECULAR BOND - "3" IN NUCLEUS + BONDS
+    Based on user's v2a edit, with bonds restored.
+  -->
+  <defs>
+    <!-- Central nucleus gradient -->
+    <radialGradient id="nucleusGrad" cx="50%" cy="30%" r="60%">
+      <stop offset="0%" stop-color="#6ee7b7"/>
+      <stop offset="100%" stop-color="#10b981"/>
+    </radialGradient>
+
+    <!-- Atom gradients -->
+    <radialGradient id="atom1Grad" cx="40%" cy="30%" r="60%">
+      <stop offset="0%" stop-color="#6ee7b7"/>
+      <stop offset="100%" stop-color="#34d399"/>
+    </radialGradient>
+    <radialGradient id="atom2Grad" cx="40%" cy="30%" r="60%">
+      <stop offset="0%" stop-color="#34d399"/>
+      <stop offset="100%" stop-color="#10b981"/>
+    </radialGradient>
+    <radialGradient id="atom3Grad" cx="40%" cy="30%" r="60%">
+      <stop offset="0%" stop-color="#10b981"/>
+      <stop offset="100%" stop-color="#059669"/>
+    </radialGradient>
+
+    <!-- Glow filter -->
+    <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="1.5" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Logomark: Molecular structure -->
+  <g id="mark" transform="translate(2, 0)">
+    <!-- Bonds with gradient -->
+    <line x1="22" y1="24" x2="22" y2="8" stroke="url(#atom1Grad)" stroke-width="2.5" stroke-linecap="round"/>
+    <line x1="22" y1="24" x2="8" y2="40" stroke="url(#atom2Grad)" stroke-width="2.5" stroke-linecap="round"/>
+    <line x1="22" y1="24" x2="36" y2="40" stroke="url(#atom3Grad)" stroke-width="2.5" stroke-linecap="round"/>
+
+    <!-- Central nucleus with glow -->
+    <circle cx="22" cy="24" r="8" fill="url(#nucleusGrad)" filter="url(#glow)"/>
+
+    <!-- "3" in nucleus -->
+    <text x="22" y="28.5"
+          font-family="Arial, system-ui, sans-serif"
+          font-size="12" font-weight="700" fill="#1a1a1a" fill-opacity="0.7"
+          text-anchor="middle">3</text>
+
+    <!-- Highlight on nucleus -->
+    <circle cx="19" cy="21" r="2.5" fill="#fff" opacity="0.3"/>
+
+    <!-- Atom 1: Information Technology (top) -->
+    <circle cx="22" cy="6" r="5.5" fill="url(#atom1Grad)" filter="url(#glow)"/>
+    <circle cx="20.5" cy="4.5" r="1.5" fill="#fff" opacity="0.35"/>
+
+    <!-- Atom 2: Industrial Technology (bottom left) -->
+    <circle cx="6" cy="42" r="5" fill="url(#atom2Grad)" filter="url(#glow)"/>
+    <circle cx="4.5" cy="40.5" r="1.5" fill="#fff" opacity="0.35"/>
+
+    <!-- Atom 3: International Trade (bottom right) -->
+    <circle cx="38" cy="42" r="5" fill="url(#atom3Grad)" filter="url(#glow)"/>
+    <circle cx="36.5" cy="40.5" r="1.5" fill="#fff" opacity="0.35"/>
+  </g>
+
+  <!-- Typography -->
+  <text x="56" y="33"
+        font-family="system-ui, -apple-system, sans-serif"
+        font-size="28" font-weight="700" fill="currentColor"
+        letter-spacing="-0.5">3IT</text>
+  <text x="111" y="33"
+        font-family="system-ui, -apple-system, sans-serif"
+        font-size="28" font-weight="300" fill="#10b981"
+        letter-spacing="-0.5">.dev</text>
+</svg>

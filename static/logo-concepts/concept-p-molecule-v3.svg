@@ -1,0 +1,52 @@
+<svg viewBox="0 0 200 48" xmlns="http://www.w3.org/2000/svg">
+  <!--
+    CONCEPT P v3: MOLECULAR BOND - STYLIZED
+    Cleaner, flatter design with stronger geometry.
+    The three atoms form the vertices of a triangle.
+  -->
+  <defs>
+    <linearGradient id="bondGrad3" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#34d399"/>
+      <stop offset="50%" stop-color="#10b981"/>
+      <stop offset="100%" stop-color="#059669"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Logomark -->
+  <g id="mark" transform="translate(2, 0)">
+    <!-- Triangle frame (outer bonds) -->
+    <path d="M 22 5 L 6 41 L 38 41 Z"
+          fill="none" stroke="#10b981" stroke-width="2" stroke-linejoin="round" opacity="0.3"/>
+
+    <!-- Inner bonds to center -->
+    <line x1="22" y1="24" x2="22" y2="5" stroke="#34d399" stroke-width="2.5" stroke-linecap="round"/>
+    <line x1="22" y1="24" x2="6" y2="41" stroke="#10b981" stroke-width="2.5" stroke-linecap="round"/>
+    <line x1="22" y1="24" x2="38" y2="41" stroke="#059669" stroke-width="2.5" stroke-linecap="round"/>
+
+    <!-- Central nucleus -->
+    <circle cx="22" cy="24" r="6" fill="#10b981"/>
+    <text x="22" y="28"
+          font-family="system-ui, -apple-system, sans-serif"
+          font-size="10" font-weight="700" fill="#0a0a0a"
+          text-anchor="middle">3</text>
+
+    <!-- Atom 1: Information Technology (top) -->
+    <circle cx="22" cy="5" r="4.5" fill="#34d399"/>
+
+    <!-- Atom 2: Industrial Technology (bottom left) -->
+    <circle cx="6" cy="41" r="4.5" fill="#10b981"/>
+
+    <!-- Atom 3: International Trade (bottom right) -->
+    <circle cx="38" cy="41" r="4.5" fill="#059669"/>
+  </g>
+
+  <!-- Typography -->
+  <text x="54" y="33"
+        font-family="system-ui, -apple-system, sans-serif"
+        font-size="28" font-weight="700" fill="currentColor"
+        letter-spacing="-0.5">3IT</text>
+  <text x="109" y="33"
+        font-family="system-ui, -apple-system, sans-serif"
+        font-size="28" font-weight="300" fill="#10b981"
+        letter-spacing="-0.5">.dev</text>
+</svg>

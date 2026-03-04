@@ -1,0 +1,38 @@
+<svg viewBox="0 0 180 48" xmlns="http://www.w3.org/2000/svg">
+  <!--
+    CONCEPT M: PRISM
+    A prism that refracts one beam into three colors/paths.
+    Represents unified input creating diverse outputs.
+    Elegant, scientific, transformative.
+  -->
+  <defs>
+    <linearGradient id="prismGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#34d399"/>
+      <stop offset="100%" stop-color="#059669"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Logomark: Prism with three output beams -->
+  <g id="mark">
+    <!-- The prism (triangle) -->
+    <polygon points="8,40 24,6 40,40" fill="none" stroke="url(#prismGrad)" stroke-width="2.5" stroke-linejoin="round"/>
+
+    <!-- Input beam (white/unified) -->
+    <line x1="0" y1="24" x2="16" y2="24" stroke="#6b7280" stroke-width="2" stroke-linecap="round"/>
+
+    <!-- Three output beams representing the three domains -->
+    <line x1="28" y1="16" x2="44" y2="8" stroke="#34d399" stroke-width="2" stroke-linecap="round"/>
+    <line x1="30" y1="24" x2="44" y2="24" stroke="#10b981" stroke-width="2" stroke-linecap="round"/>
+    <line x1="28" y1="32" x2="44" y2="40" stroke="#059669" stroke-width="2" stroke-linecap="round"/>
+  </g>
+
+  <!-- Typography -->
+  <text x="54" y="33"
+        font-family="system-ui, -apple-system, sans-serif"
+        font-size="28" font-weight="700" fill="currentColor"
+        letter-spacing="-1">3IT</text>
+  <text x="108" y="33"
+        font-family="system-ui, -apple-system, sans-serif"
+        font-size="28" font-weight="400" fill="#10b981"
+        letter-spacing="-1">.dev</text>
+</svg>

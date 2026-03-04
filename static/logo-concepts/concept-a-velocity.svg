@@ -1,0 +1,40 @@
+<svg viewBox="0 0 180 48" xmlns="http://www.w3.org/2000/svg">
+  <!--
+    CONCEPT A: VELOCITY
+    The "3" is formed by three horizontal speed lines that converge,
+    representing rapid acceleration and forward momentum.
+    Clean, dynamic, suggests speed without being aggressive.
+  -->
+  <defs>
+    <linearGradient id="velocityGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#10b981"/>
+      <stop offset="100%" stop-color="#34d399"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Logomark: Three converging lines forming abstract "3" -->
+  <g id="mark">
+    <!-- Top line -->
+    <path d="M 4 12 L 28 12 Q 36 12 36 18 L 36 20"
+          stroke="url(#velocityGrad)" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <!-- Middle line (shortest, represents convergence point) -->
+    <path d="M 12 24 L 32 24"
+          stroke="#10b981" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <!-- Bottom line -->
+    <path d="M 4 36 L 28 36 Q 36 36 36 30 L 36 28"
+          stroke="url(#velocityGrad)" stroke-width="3" fill="none" stroke-linecap="round"/>
+
+    <!-- Accent dot at convergence -->
+    <circle cx="36" cy="24" r="3" fill="#10b981"/>
+  </g>
+
+  <!-- Typography -->
+  <text x="52" y="33"
+        font-family="system-ui, -apple-system, sans-serif"
+        font-size="28" font-weight="700" fill="currentColor"
+        letter-spacing="-1">3IT</text>
+  <text x="108" y="33"
+        font-family="system-ui, -apple-system, sans-serif"
+        font-size="28" font-weight="400" fill="#10b981"
+        letter-spacing="-1">.dev</text>
+</svg>

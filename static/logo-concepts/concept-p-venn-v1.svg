@@ -1,0 +1,55 @@
+<svg viewBox="0 0 220 48" xmlns="http://www.w3.org/2000/svg">
+  <!--
+    CONCEPT: VENN DIAGRAM
+    Three overlapping circles with "it" representing the three domains.
+    "3" at the intersection where all three converge.
+  -->
+  <defs>
+    <radialGradient id="vennGrad1" cx="30%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="#6ee7b7"/>
+      <stop offset="100%" stop-color="#34d399"/>
+    </radialGradient>
+    <radialGradient id="vennGrad2" cx="30%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="#34d399"/>
+      <stop offset="100%" stop-color="#10b981"/>
+    </radialGradient>
+    <radialGradient id="vennGrad3" cx="30%" cy="30%" r="70%">
+      <stop offset="0%" stop-color="#10b981"/>
+      <stop offset="100%" stop-color="#059669"/>
+    </radialGradient>
+    <radialGradient id="centerGrad" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#6ee7b7"/>
+      <stop offset="100%" stop-color="#10b981"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Logomark: Three overlapping circles -->
+  <g id="mark">
+    <!-- Circle 1: Information Technology (top) -->
+    <circle cx="28" cy="14" r="14" fill="url(#vennGrad1)" opacity="0.85"/>
+    <text x="28" y="12" font-family="Inter, system-ui, sans-serif" font-size="8" font-weight="600"
+          fill="#0a0a0a" fill-opacity="0.5" text-anchor="middle">it</text>
+
+    <!-- Circle 2: Industrial Technology (bottom-left) -->
+    <circle cx="18" cy="34" r="14" fill="url(#vennGrad2)" opacity="0.85"/>
+    <text x="12" y="40" font-family="Inter, system-ui, sans-serif" font-size="8" font-weight="600"
+          fill="#0a0a0a" fill-opacity="0.5" text-anchor="middle">it</text>
+
+    <!-- Circle 3: International Trade (bottom-right) -->
+    <circle cx="38" cy="34" r="14" fill="url(#vennGrad3)" opacity="0.85"/>
+    <text x="44" y="40" font-family="Inter, system-ui, sans-serif" font-size="8" font-weight="600"
+          fill="#0a0a0a" fill-opacity="0.5" text-anchor="middle">it</text>
+
+    <!-- Center "3" at intersection -->
+    <text x="28" y="32" font-family="Inter, system-ui, sans-serif" font-size="18" font-weight="700"
+          fill="#0a0a0a" fill-opacity="0.7" text-anchor="middle">3</text>
+  </g>
+
+  <!-- Typography -->
+  <text x="62" y="35" font-family="Inter, system-ui, sans-serif" font-size="30" font-weight="800"
+        fill="currentColor" letter-spacing="-1">3IT</text>
+  <text x="120" y="35" font-family="Inter, system-ui, sans-serif" font-size="30" font-weight="400"
+        letter-spacing="-1">
+    <tspan fill="#ff6600">.</tspan><tspan fill="#10b981">dev</tspan>
+  </text>
+</svg>

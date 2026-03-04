@@ -1,0 +1,407 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 0 200 48"
+   version="1.1"
+   id="svg19"
+   sodipodi:docname="concept-p-molecule-v2a_1.svg"
+   inkscape:version="1.4.3 (fcd0343856, 2026-01-01)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview19"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="4.43"
+     inkscape:cx="48.645598"
+     inkscape:cy="24.040632"
+     inkscape:window-width="1854"
+     inkscape:window-height="1011"
+     inkscape:window-x="66"
+     inkscape:window-y="32"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg19" />
+  <!--
+    CONCEPT P v2: MOLECULAR BOND - ENHANCED
+    Three atoms bonded to a central nucleus.
+    Premium, scientific, synthesis of three domains.
+  -->
+  <defs
+     id="defs9">
+    <!-- Central nucleus gradient -->
+    <radialGradient
+       id="nucleusGrad"
+       cx="22"
+       cy="19.184"
+       r="14.448001"
+       fx="22"
+       fy="19.184"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(0.22573363,1.5801354)">
+      <stop
+         offset="0%"
+         stop-color="#6ee7b7"
+         id="stop1" />
+      <stop
+         offset="100%"
+         stop-color="#10b981"
+         id="stop2" />
+    </radialGradient>
+    <!-- Atom gradients -->
+    <radialGradient
+       id="atom1Grad"
+       cx="20.108"
+       cy="2.2160002"
+       r="11.352001"
+       fx="20.108"
+       fy="2.2160002"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         offset="0%"
+         stop-color="#6ee7b7"
+         id="stop3" />
+      <stop
+         offset="100%"
+         stop-color="#34d399"
+         id="stop4" />
+    </radialGradient>
+    <radialGradient
+       id="atom2Grad"
+       cx="4.2800001"
+       cy="36.56"
+       r="10.320001"
+       fx="4.2800001"
+       fy="36.56"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         offset="0%"
+         stop-color="#34d399"
+         id="stop5" />
+      <stop
+         offset="100%"
+         stop-color="#10b981"
+         id="stop6" />
+    </radialGradient>
+    <radialGradient
+       id="atom3Grad"
+       cx="36.28"
+       cy="36.56"
+       r="10.320001"
+       fx="36.28"
+       fy="36.56"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(35.440181,-13.769752)">
+      <stop
+         offset="0%"
+         stop-color="#10b981"
+         id="stop7" />
+      <stop
+         offset="100%"
+         stop-color="#059669"
+         id="stop8" />
+    </radialGradient>
+    <!-- Glow filter -->
+    <filter
+       id="glow"
+       x="-0.36"
+       y="-0.36"
+       width="1.72"
+       height="1.72">
+      <feGaussianBlur
+         stdDeviation="1.5"
+         result="blur"
+         id="feGaussianBlur8" />
+      <feMerge
+         id="feMerge9">
+        <feMergeNode
+           in="blur"
+           id="feMergeNode8" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode9" />
+      </feMerge>
+    </filter>
+    <radialGradient
+       id="atom3Grad-2"
+       cx="36.279999"
+       cy="36.560001"
+       r="10.320001"
+       fx="36.279999"
+       fy="36.560001"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(35.440181,-13.769752)">
+      <stop
+         offset="0%"
+         stop-color="#10b981"
+         id="stop7-2" />
+      <stop
+         offset="100%"
+         stop-color="#059669"
+         id="stop8-8" />
+    </radialGradient>
+    <filter
+       id="glow-9"
+       x="-0.36"
+       y="-0.36"
+       width="1.72"
+       height="1.72">
+      <feGaussianBlur
+         stdDeviation="1.5"
+         result="blur"
+         id="feGaussianBlur8-7" />
+      <feMerge
+         id="feMerge9-3">
+        <feMergeNode
+           in="blur"
+           id="feMergeNode8-6" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode9-1" />
+      </feMerge>
+    </filter>
+    <radialGradient
+       id="atom3Grad-8"
+       cx="36.279999"
+       cy="36.560001"
+       r="10.320001"
+       fx="36.279999"
+       fy="36.560001"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(35.440181,-13.769752)">
+      <stop
+         offset="0%"
+         stop-color="#10b981"
+         id="stop7-4" />
+      <stop
+         offset="100%"
+         stop-color="#059669"
+         id="stop8-5" />
+    </radialGradient>
+    <filter
+       id="glow-0"
+       x="-0.36"
+       y="-0.36"
+       width="1.72"
+       height="1.72">
+      <feGaussianBlur
+         stdDeviation="1.5"
+         result="blur"
+         id="feGaussianBlur8-3" />
+      <feMerge
+         id="feMerge9-6">
+        <feMergeNode
+           in="blur"
+           id="feMergeNode8-1" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode9-0" />
+      </feMerge>
+    </filter>
+    <radialGradient
+       id="atom3Grad-5"
+       cx="36.279999"
+       cy="36.560001"
+       r="10.320001"
+       fx="36.279999"
+       fy="36.560001"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(35.440181,-13.769752)">
+      <stop
+         offset="0%"
+         stop-color="#10b981"
+         id="stop7-5" />
+      <stop
+         offset="100%"
+         stop-color="#059669"
+         id="stop8-4" />
+    </radialGradient>
+    <filter
+       id="glow-7"
+       x="-0.36"
+       y="-0.36"
+       width="1.72"
+       height="1.72">
+      <feGaussianBlur
+         stdDeviation="1.5"
+         result="blur"
+         id="feGaussianBlur8-6" />
+      <feMerge
+         id="feMerge9-5">
+        <feMergeNode
+           in="blur"
+           id="feMergeNode8-69" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode9-3" />
+      </feMerge>
+    </filter>
+  </defs>
+  <!-- Logomark: Molecular structure -->
+  <g
+     id="g21-3"
+     transform="matrix(1.4274922,0,0,1.4274922,-91.598129,-22.169046)">
+    <circle
+       cx="73.440178"
+       cy="26.230247"
+       r="5"
+       fill="url(#atom3Grad)"
+       filter="url(#glow)"
+       id="circle17-2"
+       style="fill:url(#atom3Grad-8);filter:url(#glow-0)"
+       transform="matrix(1.9757003,0,0,1.8727053,-44.839869,-22.838995)" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:26.717px;font-family:'Comic Sans MS';-inkscape-font-specification:'Comic Sans MS, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;writing-mode:lr-tb;direction:ltr;opacity:0.96;fill:#1a1a1a;fill-opacity:0.717439;stroke-width:0.626179"
+       x="50.536175"
+       y="39.217739"
+       id="text21-0"
+       transform="matrix(0.72500186,0,0,0.67688265,56.720138,6.3685861)"><tspan
+         sodipodi:role="line"
+         id="tspan20-6"
+         x="50.536175"
+         y="39.217739"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:26.717px;font-family:'Comic Sans MS';-inkscape-font-specification:'Comic Sans MS, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.626179">it</tspan></text>
+    <ellipse
+       cx="95.981323"
+       cy="20.977655"
+       fill="#ffffff"
+       opacity="0.35"
+       id="circle18-1"
+       rx="1.723328"
+       ry="1.6334894"
+       style="stroke-width:1.11854"
+       inkscape:transform-center-x="-0.45146727"
+       inkscape:transform-center-y="-0.45146727" />
+  </g>
+  <g
+     id="g21"
+     transform="matrix(1.4274922,0,0,1.4274922,-70.583806,-18.346187)"
+     inkscape:transform-center-x="0.6772009"
+     inkscape:transform-center-y="-1.8058691">
+    <circle
+       cx="73.440178"
+       cy="26.230247"
+       r="5"
+       fill="url(#atom3Grad)"
+       filter="url(#glow)"
+       id="circle17"
+       style="fill:url(#atom3Grad)"
+       transform="matrix(1.9757003,0,0,1.8727053,-44.839869,-22.838995)" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:26.717px;font-family:'Comic Sans MS';-inkscape-font-specification:'Comic Sans MS, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;writing-mode:lr-tb;direction:ltr;opacity:0.96;fill:#1a1a1a;fill-opacity:0.717439;stroke-width:0.626179"
+       x="50.536175"
+       y="39.217739"
+       id="text21"
+       transform="matrix(0.72500186,0,0,0.67688265,56.720138,6.3685861)"><tspan
+         sodipodi:role="line"
+         id="tspan20"
+         x="50.536175"
+         y="39.217739"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:26.717px;font-family:'Comic Sans MS';-inkscape-font-specification:'Comic Sans MS, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.626179">it</tspan></text>
+    <ellipse
+       cx="95.981323"
+       cy="20.977655"
+       fill="#ffffff"
+       opacity="0.35"
+       id="circle18"
+       rx="1.723328"
+       ry="1.6334894"
+       style="stroke-width:1.11854"
+       inkscape:transform-center-x="-0.45146727"
+       inkscape:transform-center-y="-0.45146727" />
+  </g>
+  <g
+     id="g21-4"
+     transform="matrix(1.4274922,0,0,1.4274922,-85.051855,-6.8191598)">
+    <circle
+       cx="73.440178"
+       cy="26.230247"
+       r="5"
+       fill="url(#atom3Grad)"
+       filter="url(#glow)"
+       id="circle17-5"
+       style="fill:url(#atom3Grad-5);filter:url(#glow-7)"
+       transform="matrix(1.9757003,0,0,1.8727053,-44.839869,-22.838995)" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:26.717px;font-family:'Comic Sans MS';-inkscape-font-specification:'Comic Sans MS, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;writing-mode:lr-tb;direction:ltr;opacity:0.96;fill:#1a1a1a;fill-opacity:0.717439;stroke-width:0.626179"
+       x="50.536175"
+       y="39.217739"
+       id="text21-2"
+       transform="matrix(0.72500186,0,0,0.67688265,56.720138,6.3685861)"><tspan
+         sodipodi:role="line"
+         id="tspan20-5"
+         x="50.536175"
+         y="39.217739"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:26.717px;font-family:'Comic Sans MS';-inkscape-font-specification:'Comic Sans MS, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0.626179">it</tspan></text>
+    <ellipse
+       cx="95.981323"
+       cy="20.977655"
+       fill="#ffffff"
+       opacity="0.35"
+       id="circle18-47"
+       rx="1.723328"
+       ry="1.6334894"
+       style="stroke-width:1.11854"
+       inkscape:transform-center-x="-0.45146727"
+       inkscape:transform-center-y="-0.45146727" />
+  </g>
+  <g
+     id="mark"
+     transform="matrix(1.1488853,0,0,1.0889929,4.7077601,-2.249942)">
+    <!-- Bonds with gradient -->
+    <!-- Central nucleus with glow -->
+    <circle
+       cx="22.225733"
+       cy="25.580135"
+       r="7"
+       fill="url(#nucleusGrad)"
+       filter="url(#glow)"
+       id="circle11"
+       style="display:inline;fill:url(#nucleusGrad)"
+       transform="matrix(2.4061481,0,0,2.4061481,-32.832806,-37.549592)" />
+    <text
+       xml:space="preserve"
+       style="font-size:44.9128px;font-family:Arial, sans-serif;-inkscape-font-specification:'Arial, sans-serif';writing-mode:lr-tb;direction:ltr;display:inline;opacity:0.96;fill:#1a1a1a;fill-opacity:0.717439;stroke-width:1.05264"
+       x="4.7099166"
+       y="44.586361"
+       id="text20"
+       transform="scale(1.1864853,0.84282545)"><tspan
+         sodipodi:role="line"
+         id="tspan19"
+         x="4.7099166"
+         y="44.586361"
+         style="fill:#1a1a1a;stroke-width:1.05264">3</tspan></text>
+    <circle
+       cx="13.905191"
+       cy="16.582394"
+       r="3.1286681"
+       fill="#ffffff"
+       opacity="0.3"
+       id="circle12"
+       style="display:inline;stroke-width:1.56433" />
+    <!-- Atom 1: Information Technology (top) -->
+    <!-- Atom 2: Industrial Technology (bottom left) -->
+    <!-- Atom 3: International Trade (bottom right) -->
+  </g>
+  <!-- Typography -->
+  <text
+     x="73.302483"
+     y="41.352142"
+     font-family="system-ui, '-apple-system', sans-serif"
+     font-size="28px"
+     font-weight="300"
+     fill="#10b981"
+     letter-spacing="-0.5"
+     id="text19"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:28px;font-family:'Arial Black';-inkscape-font-specification:'Arial Black, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;letter-spacing:-0.5;fill:#10b981"><tspan
+   style="fill:#ff6600"
+   id="tspan21">.</tspan>dev</text>
+</svg>

@@ -1,10 +1,35 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 50" fill="none">
-  <!-- Logo mark - rounded square with 3IT -->
-  <rect x="2" y="5" width="40" height="40" rx="8" fill="#2563eb"/>
+<svg viewBox="0 0 200 48" xmlns="http://www.w3.org/2000/svg">
+  <!--
+    3IT.dev Logo - Venn Diagram Style
+    Three overlapping circles representing:
+    - Information Technology
+    - Industrial Technology
+    - International Trade
+    The "3" at center represents convergence.
+  -->
 
-  <!-- 3IT text in logo mark -->
-  <text x="22" y="32" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-size="16" font-weight="700" fill="white">3IT</text>
+  <!-- Logomark: Three overlapping circle outlines -->
+  <g id="mark">
+    <!-- Circle 1: Information Technology (top) -->
+    <circle cx="24" cy="12" r="11" fill="none" stroke="#34d399" stroke-width="2.5"/>
 
-  <!-- Services text -->
-  <text x="52" y="33" font-family="Inter, system-ui, sans-serif" font-size="24" font-weight="700" fill="#111827">Services</text>
+    <!-- Circle 2: Industrial Technology (bottom-left) -->
+    <circle cx="15" cy="30" r="11" fill="none" stroke="#10b981" stroke-width="2.5"/>
+
+    <!-- Circle 3: International Trade (bottom-right) -->
+    <circle cx="33" cy="30" r="11" fill="none" stroke="#059669" stroke-width="2.5"/>
+
+    <!-- Center intersection -->
+    <circle cx="24" cy="24" r="7" fill="#10b981"/>
+    <text x="24" y="28" font-family="Inter, system-ui, -apple-system, sans-serif"
+          font-size="11" font-weight="700" fill="#fff" text-anchor="middle">3</text>
+  </g>
+
+  <!-- Typography -->
+  <text x="52" y="33" font-family="Inter, system-ui, -apple-system, sans-serif"
+        font-size="28" font-weight="800" fill="currentColor" letter-spacing="-0.5">3IT</text>
+  <text x="106" y="33" font-family="Inter, system-ui, -apple-system, sans-serif"
+        font-size="28" font-weight="400" letter-spacing="-0.5">
+    <tspan fill="#f97316">.</tspan><tspan fill="#10b981">dev</tspan>
+  </text>
 </svg>

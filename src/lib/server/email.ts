@@ -1,8 +1,30 @@
 import nodemailer from 'nodemailer';
 import type { Transporter } from 'nodemailer';
 import { env } from '$env/dynamic/private';
+import { randomInt } from 'crypto';
 
 let transporter: Transporter | null = null;
+
+/**
+ * Escape HTML special characters to prevent XSS in email templates
+ */
+function escapeHtml(text: string): string {
+  const htmlEntities: Record<string, string> = {
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#x27;'
+  };
+  return text.replace(/[&<>"']/g, (char) => htmlEntities[char]);
+}
+
+/**
+ * Sanitize email header values to prevent header injection attacks
+ */
+function sanitizeEmailHeader(text: string): string {
+  return text.replace(/[\r\n]/g, '').trim();
+}
 
 function getTransporter(): Transporter {
   if (!transporter) {
@@ -33,10 +55,14 @@ function getFromAddress(): string {
 }
 
 export function generateVerificationCode(): string {
-  return Math.floor(100000 + Math.random() * 900000).toString();
+  // Use cryptographically secure random number generation
+  return randomInt(100000, 1000000).toString();
 }
 
 export async function sendVerificationEmail(to: string, code: string, name: string): Promise<void> {
+  const safeName = escapeHtml(name);
+  const safeCode = escapeHtml(code);
+
   const html = `
     <!DOCTYPE html>
     <html>
@@ -60,12 +86,12 @@ export async function sendVerificationEmail(to: string, code: string, name: stri
           <p>Phyto Platform Demo Request</p>
         </div>
 
-        <p>Hi ${name},</p>
+        <p>Hi ${safeName},</p>
 
         <p>Thank you for your interest in the Phyto Platform. Please use the verification code below to confirm your demo request:</p>
 
         <div class="code-box">
-          <div class="code">${code}</div>
+          <div class="code">${safeCode}</div>
           <div class="expires">This code expires in 10 minutes</div>
         </div>
 
@@ -92,7 +118,8 @@ export async function sendDemoConfirmationEmail(
   name: string,
   preferredDatetime: string
 ): Promise<void> {
-  const formattedDate = new Date(preferredDatetime).toLocaleString('en-US', {
+  const safeName = escapeHtml(name);
+  const formattedDate = escapeHtml(new Date(preferredDatetime).toLocaleString('en-US', {
     weekday: 'long',
     year: 'numeric',
     month: 'long',
@@ -100,7 +127,7 @@ export async function sendDemoConfirmationEmail(
     hour: 'numeric',
     minute: '2-digit',
     timeZoneName: 'short'
-  });
+  }));
 
   const html = `
     <!DOCTYPE html>
@@ -125,7 +152,7 @@ export async function sendDemoConfirmationEmail(
           <p>Phyto Platform Demo Request Confirmed</p>
         </div>
 
-        <p>Hi ${name},</p>
+        <p>Hi ${safeName},</p>
 
         <p>Your demo request for the Phyto Platform has been confirmed!</p>
 
@@ -163,7 +190,13 @@ export async function sendAdminNotificationEmail(request: {
   phone: string | null;
   preferred_datetime: string;
 }): Promise<void> {
-  const formattedDate = new Date(request.preferred_datetime).toLocaleString('en-US', {
+  // Escape all user inputs to prevent XSS
+  const safeName = escapeHtml(request.name);
+  const safeOrganization = escapeHtml(request.organization);
+  const safeRole = escapeHtml(request.role);
+  const safeEmail = escapeHtml(request.email);
+  const safePhone = request.phone ? escapeHtml(request.phone) : 'Not provided';
+  const formattedDate = escapeHtml(new Date(request.preferred_datetime).toLocaleString('en-US', {
     weekday: 'long',
     year: 'numeric',
     month: 'long',
@@ -171,7 +204,7 @@ export async function sendAdminNotificationEmail(request: {
     hour: 'numeric',
     minute: '2-digit',
     timeZoneName: 'short'
-  });
+  }));
 
   const html = `
     <!DOCTYPE html>
@@ -198,23 +231,23 @@ export async function sendAdminNotificationEmail(request: {
         <div class="details">
           <div class="row">
             <span class="label">Name:</span>
-            <span class="value">${request.name}</span>
+            <span class="value">${safeName}</span>
           </div>
           <div class="row">
             <span class="label">Organization:</span>
-            <span class="value">${request.organization}</span>
+            <span class="value">${safeOrganization}</span>
           </div>
           <div class="row">
             <span class="label">Role:</span>
-            <span class="value">${request.role}</span>
+            <span class="value">${safeRole}</span>
           </div>
           <div class="row">
             <span class="label">Email:</span>
-            <span class="value"><a href="mailto:${request.email}">${request.email}</a></span>
+            <span class="value"><a href="mailto:${safeEmail}">${safeEmail}</a></span>
           </div>
           <div class="row">
             <span class="label">Phone:</span>
-            <span class="value">${request.phone || 'Not provided'}</span>
+            <span class="value">${safePhone}</span>
           </div>
           <div class="row" style="border-bottom: none;">
             <span class="label">Preferred Time:</span>
@@ -229,11 +262,14 @@ export async function sendAdminNotificationEmail(request: {
   `;
 
   const from = getFromAddress();
-  const adminEmail = env.ADMIN_EMAIL || 'deepak.pradhan@gmail.com';
+  const adminEmail = env.ADMIN_EMAIL;
+  if (!adminEmail) {
+    throw new Error('Missing ADMIN_EMAIL configuration. Check your .env file.');
+  }
   await getTransporter().sendMail({
     from,
     to: adminEmail,
-    subject: `[Demo Request] ${request.organization} - ${request.name}`,
+    subject: sanitizeEmailHeader(`[Demo Request] ${safeOrganization} - ${safeName}`),
     html
   });
 }

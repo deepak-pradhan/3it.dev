@@ -1,0 +1,39 @@
+<svg viewBox="0 0 180 48" xmlns="http://www.w3.org/2000/svg">
+  <!--
+    CONCEPT K: TRIPLE HELIX
+    Three intertwining strands spiraling upward.
+    Represents growth, DNA/innovation, and interweaving of domains.
+    Dynamic, innovative, forward-moving.
+  -->
+  <defs>
+    <linearGradient id="helixGrad1" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#059669"/>
+      <stop offset="100%" stop-color="#34d399"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Logomark: Triple helix -->
+  <g id="mark" fill="none" stroke-width="3" stroke-linecap="round">
+    <!-- Strand 1: Information Technology -->
+    <path d="M 8 40 Q 8 30, 20 28 Q 32 26, 32 16 Q 32 6, 20 4"
+          stroke="#34d399"/>
+
+    <!-- Strand 2: Industrial Technology -->
+    <path d="M 20 44 Q 32 40, 32 30 Q 32 20, 20 18 Q 8 16, 8 6"
+          stroke="#10b981"/>
+
+    <!-- Strand 3: International Trade -->
+    <path d="M 32 42 Q 20 38, 8 30 Q 8 22, 20 20 Q 32 18, 32 8"
+          stroke="#059669"/>
+  </g>
+
+  <!-- Typography -->
+  <text x="48" y="33"
+        font-family="system-ui, -apple-system, sans-serif"
+        font-size="28" font-weight="700" fill="currentColor"
+        letter-spacing="-1">3IT</text>
+  <text x="102" y="33"
+        font-family="system-ui, -apple-system, sans-serif"
+        font-size="28" font-weight="400" fill="#10b981"
+        letter-spacing="-1">.dev</text>
+</svg>

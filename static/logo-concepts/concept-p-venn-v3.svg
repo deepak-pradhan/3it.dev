@@ -1,0 +1,50 @@
+<svg viewBox="0 0 220 48" xmlns="http://www.w3.org/2000/svg">
+  <!--
+    CONCEPT: VENN DIAGRAM v3 - BOLD INTERSECTION
+    Emphasis on the center where all three domains meet.
+  -->
+  <defs>
+    <radialGradient id="centerBold" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#6ee7b7"/>
+      <stop offset="100%" stop-color="#059669"/>
+    </radialGradient>
+    <filter id="softGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="1" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Logomark -->
+  <g id="mark">
+    <!-- Subtle outer circles -->
+    <circle cx="28" cy="12" r="11" fill="#34d399" opacity="0.25"/>
+    <circle cx="17" cy="32" r="11" fill="#10b981" opacity="0.25"/>
+    <circle cx="39" cy="32" r="11" fill="#059669" opacity="0.25"/>
+
+    <!-- Connecting lines to center -->
+    <line x1="28" y1="12" x2="28" y2="24" stroke="#34d399" stroke-width="2" opacity="0.5"/>
+    <line x1="17" y1="32" x2="24" y2="26" stroke="#10b981" stroke-width="2" opacity="0.5"/>
+    <line x1="39" y1="32" x2="32" y2="26" stroke="#059669" stroke-width="2" opacity="0.5"/>
+
+    <!-- Small dots at outer positions -->
+    <circle cx="28" cy="10" r="3" fill="#34d399"/>
+    <circle cx="15" cy="34" r="3" fill="#10b981"/>
+    <circle cx="41" cy="34" r="3" fill="#059669"/>
+
+    <!-- Bold center intersection -->
+    <circle cx="28" cy="26" r="10" fill="url(#centerBold)" filter="url(#softGlow)"/>
+    <text x="28" y="31" font-family="Inter, system-ui, sans-serif" font-size="14" font-weight="700"
+          fill="#0a0a0a" fill-opacity="0.75" text-anchor="middle">3</text>
+  </g>
+
+  <!-- Typography -->
+  <text x="58" y="34" font-family="Inter, system-ui, sans-serif" font-size="28" font-weight="800"
+        fill="currentColor" letter-spacing="-0.5">3IT</text>
+  <text x="113" y="34" font-family="Inter, system-ui, sans-serif" font-size="28" font-weight="400"
+        letter-spacing="-0.5">
+    <tspan fill="#ff6600">.</tspan><tspan fill="#10b981">dev</tspan>
+  </text>
+</svg>

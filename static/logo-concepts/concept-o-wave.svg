@@ -1,0 +1,33 @@
+<svg viewBox="0 0 180 48" xmlns="http://www.w3.org/2000/svg">
+  <!--
+    CONCEPT O: CONVERGENT WAVES
+    Three flowing waves merging into one.
+    Represents harmony, flow, and unified direction.
+    Elegant, dynamic, progressive.
+  -->
+
+  <!-- Logomark: Three waves converging -->
+  <g id="mark" fill="none" stroke-width="3" stroke-linecap="round">
+    <!-- Wave 1: Information Technology -->
+    <path d="M 4 12 Q 12 6, 20 12 Q 28 18, 36 24" stroke="#34d399"/>
+
+    <!-- Wave 2: Industrial Technology -->
+    <path d="M 4 24 Q 12 18, 20 24 Q 28 30, 36 24" stroke="#10b981"/>
+
+    <!-- Wave 3: International Trade -->
+    <path d="M 4 36 Q 12 42, 20 36 Q 28 30, 36 24" stroke="#059669"/>
+
+    <!-- Convergence point -->
+    <circle cx="38" cy="24" r="4" fill="#10b981"/>
+  </g>
+
+  <!-- Typography -->
+  <text x="52" y="33"
+        font-family="system-ui, -apple-system, sans-serif"
+        font-size="28" font-weight="700" fill="currentColor"
+        letter-spacing="-1">3IT</text>
+  <text x="106" y="33"
+        font-family="system-ui, -apple-system, sans-serif"
+        font-size="28" font-weight="400" fill="#10b981"
+        letter-spacing="-1">.dev</text>
+</svg>

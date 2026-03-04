@@ -5,11 +5,41 @@
 
   let isSubmitting = $state(false);
   let verificationCode = $state('');
+  let resendMessage = $state('');
+  let isResending = $state(false);
 
   // Derive state from form response
   const showVerification = $derived(form?.needsVerification && !form?.success);
   const showSuccess = $derived(form?.success);
   const currentRequestId = $derived(form?.requestId);
+
+  async function handleResend() {
+    if (isResending || !currentRequestId) return;
+
+    isResending = true;
+    resendMessage = '';
+
+    try {
+      const formData = new FormData();
+      formData.append('requestId', String(currentRequestId));
+      const response = await fetch('?/resend', { method: 'POST', body: formData });
+      const result = await response.json();
+
+      if (result.type === 'success') {
+        resendMessage = 'New code sent! Check your email.';
+      } else if (result.data?.error) {
+        resendMessage = result.data.error;
+      } else {
+        resendMessage = 'Code resent!';
+      }
+    } catch {
+      resendMessage = 'Failed to resend. Try again.';
+    } finally {
+      isResending = false;
+      // Clear message after 5 seconds
+      setTimeout(() => { resendMessage = ''; }, 5000);
+    }
+  }
 </script>
 
 <svelte:head>
@@ -97,16 +127,19 @@
               </button>
               <button
                 type="button"
-                onclick={async () => {
-                  const formData = new FormData();
-                  formData.append('requestId', String(currentRequestId));
-                  await fetch('?/resend', { method: 'POST', body: formData });
-                }}
-                class="px-6 py-3 text-sm font-medium text-gray-400 hover:text-white transition-colors"
+                onclick={handleResend}
+                disabled={isResending}
+                class="px-6 py-3 text-sm font-medium text-gray-400 hover:text-white transition-colors disabled:opacity-50"
               >
-                Resend code
+                {isResending ? 'Sending...' : 'Resend code'}
               </button>
             </div>
+
+            {#if resendMessage}
+              <div class="text-center text-sm {resendMessage.includes('sent') ? 'text-emerald-400' : 'text-red-400'}">
+                {resendMessage}
+              </div>
+            {/if}
           </form>
         {:else}
           <form

@@ -1,5 +1,7 @@
 import { fail } from '@sveltejs/kit';
 import { z } from 'zod';
+import { timingSafeEqual } from 'crypto';
+import { dev } from '$app/environment';
 import {
   createDemoRequest,
   getDemoRequestById,
@@ -14,14 +16,31 @@ import {
   sendDemoConfirmationEmail,
   sendAdminNotificationEmail
 } from '$lib/server/email';
+import { checkRateLimit, getRateLimitKey, RATE_LIMITS } from '$lib/server/rate-limit';
 import type { Actions } from './$types';
+
+// Phone number validation regex - allows common international formats
+// Examples: +1 (555) 123-4567, +44 20 7946 0958, 555-123-4567
+const phoneRegex = /^[+]?[(]?[0-9]{1,4}[)]?[-\s./0-9]*$/;
+
+/**
+ * Sanitize input by removing HTML tags to prevent stored XSS
+ */
+function sanitizeInput(text: string): string {
+  return text.replace(/<[^>]*>/g, '').trim();
+}
 
 const submitSchema = z.object({
   name: z.string().min(2, 'Name must be at least 2 characters'),
   email: z.string().email('Invalid email address'),
   organization: z.string().min(2, 'Organization must be at least 2 characters'),
   role: z.string().min(2, 'Role must be at least 2 characters'),
-  phone: z.string().optional(),
+  phone: z.string()
+    .optional()
+    .refine(
+      (val) => !val || (val.length >= 7 && val.length <= 20 && phoneRegex.test(val)),
+      { message: 'Please enter a valid phone number' }
+    ),
   preferred_datetime: z.string().min(1, 'Please select a preferred date and time')
 });
 
@@ -32,12 +51,22 @@ const verifySchema = z.object({
 
 export const actions: Actions = {
   submit: async ({ request }) => {
+    // Rate limiting check
+    const rateLimitKey = getRateLimitKey(request, 'demo-request');
+    const rateLimitResult = checkRateLimit(rateLimitKey, RATE_LIMITS.demoRequest);
+    if (!rateLimitResult.allowed) {
+      const minutes = Math.ceil(rateLimitResult.resetIn / 60000);
+      return fail(429, {
+        error: `Too many requests. Please try again in ${minutes} minute${minutes > 1 ? 's' : ''}.`
+      });
+    }
+
     const formData = await request.formData();
     const data = Object.fromEntries(formData);
 
     const parsed = submitSchema.safeParse(data);
     if (!parsed.success) {
-      return fail(400, { error: parsed.error.errors[0].message });
+      return fail(400, { error: parsed.error.issues[0].message });
     }
 
     // Check if there's already a pending request for this email
@@ -50,41 +79,45 @@ export const actions: Actions = {
     const codeExpiresAt = Math.floor(Date.now() / 1000) + 600; // 10 minutes
 
     try {
-      console.log('Creating demo request for:', parsed.data.email);
+      // Sanitize inputs to prevent stored XSS
       const demoRequest = createDemoRequest({
-        name: parsed.data.name,
-        organization: parsed.data.organization,
-        role: parsed.data.role,
+        name: sanitizeInput(parsed.data.name),
+        organization: sanitizeInput(parsed.data.organization),
+        role: sanitizeInput(parsed.data.role),
         email: parsed.data.email,
-        phone: parsed.data.phone,
+        phone: parsed.data.phone ? sanitizeInput(parsed.data.phone) : undefined,
         preferred_datetime: parsed.data.preferred_datetime,
         verification_code: code,
         code_expires_at: codeExpiresAt
       });
-      console.log('Demo request created with ID:', demoRequest.id);
 
-      console.log('Sending verification email to:', parsed.data.email);
       await sendVerificationEmail(parsed.data.email, code, parsed.data.name);
-      console.log('Verification email sent successfully');
 
       return { needsVerification: true, requestId: demoRequest.id };
     } catch (error) {
-      console.error('Error creating demo request:', error);
-      if (error instanceof Error) {
-        console.error('Error message:', error.message);
-        console.error('Error stack:', error.stack);
-      }
+      console.error('Error creating demo request:', dev ? error : 'See server logs');
       return fail(500, { error: 'Failed to process your request. Please try again.' });
     }
   },
 
   verify: async ({ request }) => {
+    // Rate limiting check for verification attempts (brute force protection)
+    const rateLimitKey = getRateLimitKey(request, 'verify-code');
+    const rateLimitResult = checkRateLimit(rateLimitKey, RATE_LIMITS.verifyCode);
+    if (!rateLimitResult.allowed) {
+      const minutes = Math.ceil(rateLimitResult.resetIn / 60000);
+      return fail(429, {
+        error: `Too many verification attempts. Please try again in ${minutes} minute${minutes > 1 ? 's' : ''}.`,
+        needsVerification: true
+      });
+    }
+
     const formData = await request.formData();
     const data = Object.fromEntries(formData);
 
     const parsed = verifySchema.safeParse(data);
     if (!parsed.success) {
-      return fail(400, { error: parsed.error.errors[0].message, needsVerification: true, requestId: data.requestId });
+      return fail(400, { error: parsed.error.issues[0].message, needsVerification: true, requestId: data.requestId });
     }
 
     const demoRequest = getDemoRequestById(parsed.data.requestId);
@@ -101,7 +134,10 @@ export const actions: Actions = {
       return fail(400, { error: 'Code has expired. Please request a new one.', needsVerification: true, requestId: parsed.data.requestId });
     }
 
-    if (demoRequest.verification_code !== parsed.data.code) {
+    // Use timing-safe comparison to prevent timing attacks
+    const codeBuffer = Buffer.from(demoRequest.verification_code || '');
+    const inputBuffer = Buffer.from(parsed.data.code);
+    if (codeBuffer.length !== inputBuffer.length || !timingSafeEqual(codeBuffer, inputBuffer)) {
       return fail(400, { error: 'Invalid verification code', needsVerification: true, requestId: parsed.data.requestId });
     }
 
@@ -123,12 +159,23 @@ export const actions: Actions = {
 
       return { success: true };
     } catch (error) {
-      console.error('Error verifying demo request:', error);
+      console.error('Error verifying demo request:', dev ? error : 'See server logs');
       return fail(500, { error: 'Failed to verify. Please try again.', needsVerification: true, requestId: parsed.data.requestId });
     }
   },
 
   resend: async ({ request }) => {
+    // Rate limiting check for resend attempts
+    const rateLimitKey = getRateLimitKey(request, 'resend-code');
+    const rateLimitResult = checkRateLimit(rateLimitKey, RATE_LIMITS.resendCode);
+    if (!rateLimitResult.allowed) {
+      const minutes = Math.ceil(rateLimitResult.resetIn / 60000);
+      return fail(429, {
+        error: `Too many resend attempts. Please try again in ${minutes} minute${minutes > 1 ? 's' : ''}.`,
+        needsVerification: true
+      });
+    }
+
     const formData = await request.formData();
     const requestId = Number(formData.get('requestId'));
 
@@ -154,7 +201,7 @@ export const actions: Actions = {
 
       return { needsVerification: true, requestId: demoRequest.id, message: 'New code sent!' };
     } catch (error) {
-      console.error('Error resending verification code:', error);
+      console.error('Error resending verification code:', dev ? error : 'See server logs');
       return fail(500, { error: 'Failed to resend code. Please try again.', needsVerification: true, requestId });
     }
   }

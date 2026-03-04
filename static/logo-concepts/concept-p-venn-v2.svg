@@ -1,0 +1,44 @@
+<svg viewBox="0 0 220 48" xmlns="http://www.w3.org/2000/svg">
+  <!--
+    CONCEPT: VENN DIAGRAM v2 - OUTLINE STYLE
+    Three overlapping circle outlines, cleaner minimal look.
+  -->
+  <defs>
+    <linearGradient id="vennLine" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#34d399"/>
+      <stop offset="50%" stop-color="#10b981"/>
+      <stop offset="100%" stop-color="#059669"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Logomark: Three overlapping circle outlines -->
+  <g id="mark">
+    <!-- Circle 1: Information Technology (top) -->
+    <circle cx="28" cy="14" r="12" fill="none" stroke="#34d399" stroke-width="2.5" opacity="0.9"/>
+    <text x="28" y="11" font-family="Inter, system-ui, sans-serif" font-size="7" font-weight="600"
+          fill="#34d399" text-anchor="middle">IT</text>
+
+    <!-- Circle 2: Industrial Technology (bottom-left) -->
+    <circle cx="18" cy="32" r="12" fill="none" stroke="#10b981" stroke-width="2.5" opacity="0.9"/>
+    <text x="11" y="38" font-family="Inter, system-ui, sans-serif" font-size="7" font-weight="600"
+          fill="#10b981" text-anchor="middle">IT</text>
+
+    <!-- Circle 3: International Trade (bottom-right) -->
+    <circle cx="38" cy="32" r="12" fill="none" stroke="#059669" stroke-width="2.5" opacity="0.9"/>
+    <text x="45" y="38" font-family="Inter, system-ui, sans-serif" font-size="7" font-weight="600"
+          fill="#059669" text-anchor="middle">IT</text>
+
+    <!-- Center intersection highlight -->
+    <circle cx="28" cy="26" r="6" fill="#10b981"/>
+    <text x="28" y="29.5" font-family="Inter, system-ui, sans-serif" font-size="10" font-weight="700"
+          fill="#fff" text-anchor="middle">3</text>
+  </g>
+
+  <!-- Typography -->
+  <text x="60" y="34" font-family="Inter, system-ui, sans-serif" font-size="28" font-weight="800"
+        fill="currentColor" letter-spacing="-0.5">3IT</text>
+  <text x="115" y="34" font-family="Inter, system-ui, sans-serif" font-size="28" font-weight="400"
+        letter-spacing="-0.5">
+    <tspan fill="#ff6600">.</tspan><tspan fill="#10b981">dev</tspan>
+  </text>
+</svg>

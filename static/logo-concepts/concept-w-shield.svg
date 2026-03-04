@@ -1,0 +1,44 @@
+<svg viewBox="0 0 180 48" xmlns="http://www.w3.org/2000/svg">
+  <!--
+    CONCEPT W: SHIELD / CREST
+    Three sections within a shield shape.
+    Represents protection, trust, and enterprise security.
+    Authoritative, trustworthy, established.
+  -->
+  <defs>
+    <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#34d399"/>
+      <stop offset="100%" stop-color="#059669"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Logomark: Shield with three sections -->
+  <g id="mark">
+    <!-- Shield outline -->
+    <path d="M 20 4 L 38 10 L 38 28 Q 38 40, 20 46 Q 2 40, 2 28 L 2 10 Z"
+          fill="none" stroke="url(#shieldGrad)" stroke-width="2.5"/>
+
+    <!-- Three vertical sections -->
+    <!-- Section 1: Information Technology -->
+    <path d="M 8 14 L 8 30 Q 8 36, 14 40" stroke="#34d399" stroke-width="2" fill="none" stroke-linecap="round"/>
+
+    <!-- Section 2: Industrial Technology (center) -->
+    <line x1="20" y1="12" x2="20" y2="42" stroke="#10b981" stroke-width="2" stroke-linecap="round"/>
+
+    <!-- Section 3: International Trade -->
+    <path d="M 32 14 L 32 30 Q 32 36, 26 40" stroke="#059669" stroke-width="2" fill="none" stroke-linecap="round"/>
+
+    <!-- Top accent -->
+    <circle cx="20" cy="10" r="2.5" fill="#10b981"/>
+  </g>
+
+  <!-- Typography -->
+  <text x="50" y="33"
+        font-family="system-ui, -apple-system, sans-serif"
+        font-size="28" font-weight="700" fill="currentColor"
+        letter-spacing="-1">3IT</text>
+  <text x="104" y="33"
+        font-family="system-ui, -apple-system, sans-serif"
+        font-size="28" font-weight="400" fill="#10b981"
+        letter-spacing="-1">.dev</text>
+</svg>

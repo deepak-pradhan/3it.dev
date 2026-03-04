@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 0 200 48"
+   version="1.1"
+   id="svg19"
+   sodipodi:docname="concept-p-molecule-v2a.svg"
+   inkscape:version="1.4.3 (fcd0343856, 2026-01-01)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview19"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="4.43"
+     inkscape:cx="99.887133"
+     inkscape:cy="24.040632"
+     inkscape:window-width="1854"
+     inkscape:window-height="1011"
+     inkscape:window-x="66"
+     inkscape:window-y="32"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="mark" />
+  <!--
+    CONCEPT P v2: MOLECULAR BOND - ENHANCED
+    Three atoms bonded to a central nucleus.
+    Premium, scientific, synthesis of three domains.
+  -->
+  <defs
+     id="defs9">
+    <!-- Central nucleus gradient -->
+    <radialGradient
+       id="nucleusGrad"
+       cx="22"
+       cy="19.184"
+       r="14.448001"
+       fx="22"
+       fy="19.184"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(0.22573363,1.5801354)">
+      <stop
+         offset="0%"
+         stop-color="#6ee7b7"
+         id="stop1" />
+      <stop
+         offset="100%"
+         stop-color="#10b981"
+         id="stop2" />
+    </radialGradient>
+    <!-- Atom gradients -->
+    <radialGradient
+       id="atom1Grad"
+       cx="20.108"
+       cy="2.2160002"
+       r="11.352001"
+       fx="20.108"
+       fy="2.2160002"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         offset="0%"
+         stop-color="#6ee7b7"
+         id="stop3" />
+      <stop
+         offset="100%"
+         stop-color="#34d399"
+         id="stop4" />
+    </radialGradient>
+    <radialGradient
+       id="atom2Grad"
+       cx="4.2800001"
+       cy="36.56"
+       r="10.320001"
+       fx="4.2800001"
+       fy="36.56"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         offset="0%"
+         stop-color="#34d399"
+         id="stop5" />
+      <stop
+         offset="100%"
+         stop-color="#10b981"
+         id="stop6" />
+    </radialGradient>
+    <radialGradient
+       id="atom3Grad"
+       cx="36.28"
+       cy="36.56"
+       r="10.320001"
+       fx="36.28"
+       fy="36.56"
+       gradientUnits="userSpaceOnUse">
+      <stop
+         offset="0%"
+         stop-color="#10b981"
+         id="stop7" />
+      <stop
+         offset="100%"
+         stop-color="#059669"
+         id="stop8" />
+    </radialGradient>
+    <!-- Glow filter -->
+    <filter
+       id="glow"
+       x="-0.36"
+       y="-0.36"
+       width="1.72"
+       height="1.72">
+      <feGaussianBlur
+         stdDeviation="1.5"
+         result="blur"
+         id="feGaussianBlur8" />
+      <feMerge
+         id="feMerge9">
+        <feMergeNode
+           in="blur"
+           id="feMergeNode8" />
+        <feMergeNode
+           in="SourceGraphic"
+           id="feMergeNode9" />
+      </feMerge>
+    </filter>
+  </defs>
+  <!-- Logomark: Molecular structure -->
+  <g
+     id="mark"
+     transform="translate(3.5801354,1.1286682)">
+    <!-- Bonds with gradient -->
+    <!-- Central nucleus with glow -->
+    <circle
+       cx="22.225733"
+       cy="25.580135"
+       r="7"
+       fill="url(#nucleusGrad)"
+       filter="url(#glow)"
+       id="circle11"
+       style="fill:url(#nucleusGrad)" />
+    <text
+       xml:space="preserve"
+       style="font-size:12.867px;font-family:Arial, sans-serif;-inkscape-font-specification:'Arial, sans-serif';writing-mode:lr-tb;direction:ltr;opacity:0.96;fill:#1a1a1a;fill-opacity:0.717439;stroke-width:0.30157"
+       x="17.770885"
+       y="36.25124"
+       id="text20"
+       transform="matrix(1.1826769,0,0,0.84553946,-3.5801354,-1.1286682)"><tspan
+         sodipodi:role="line"
+         id="tspan19"
+         x="17.770885"
+         y="36.25124"
+         style="fill:#1a1a1a;stroke-width:0.30157">3</tspan></text>
+    <circle
+       cx="19.548532"
+       cy="23.354403"
+       r="2"
+       fill="#ffffff"
+       opacity="0.3"
+       id="circle12" />
+    <!-- Atom 1: Information Technology (top) -->
+    <circle
+       cx="22"
+       cy="6"
+       r="5.5"
+       fill="url(#atom1Grad)"
+       filter="url(#glow)"
+       id="circle13"
+       style="fill:url(#atom1Grad)" />
+    <circle
+       cx="20.5"
+       cy="4.5"
+       r="1.5"
+       fill="#ffffff"
+       opacity="0.35"
+       id="circle14"
+       sodipodi:insensitive="true" />
+    <!-- Atom 2: Industrial Technology (bottom left) -->
+    <circle
+       cx="6"
+       cy="40"
+       r="5"
+       fill="url(#atom2Grad)"
+       filter="url(#glow)"
+       id="circle15"
+       style="fill:url(#atom2Grad)"
+       sodipodi:insensitive="true" />
+    <circle
+       cx="4.5"
+       cy="38.5"
+       r="1.5"
+       fill="#ffffff"
+       opacity="0.35"
+       id="circle16"
+       sodipodi:insensitive="true" />
+    <!-- Atom 3: International Trade (bottom right) -->
+    <circle
+       cx="38"
+       cy="40"
+       r="5"
+       fill="url(#atom3Grad)"
+       filter="url(#glow)"
+       id="circle17"
+       style="fill:url(#atom3Grad)"
+       sodipodi:insensitive="true" />
+    <circle
+       cx="36.5"
+       cy="38.5"
+       r="1.5"
+       fill="#ffffff"
+       opacity="0.35"
+       id="circle18"
+       sodipodi:insensitive="true" />
+  </g>
+  <!-- Typography -->
+  <text
+     x="56"
+     y="33"
+     font-family="system-ui, -apple-system, sans-serif"
+     font-size="28"
+     font-weight="700"
+     fill="currentColor"
+     letter-spacing="-0.5"
+     id="text18">3IT</text>
+  <text
+     x="111"
+     y="33"
+     font-family="system-ui, -apple-system, sans-serif"
+     font-size="28"
+     font-weight="300"
+     fill="#10b981"
+     letter-spacing="-0.5"
+     id="text19">.dev</text>
+</svg>

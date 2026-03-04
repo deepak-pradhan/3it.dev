@@ -1,7 +1,8 @@
 <script lang="ts">
   import { cn } from '$lib/utils';
+  import type { Snippet } from 'svelte';
 
-  let { class: className, children, ...restProps }: { class?: string; children?: any } = $props();
+  let { class: className, children, ...restProps }: { class?: string; children?: Snippet } = $props();
 </script>
 
 <h3 class={cn('font-semibold leading-none tracking-tight', className)} {...restProps}>

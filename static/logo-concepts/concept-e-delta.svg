@@ -1,0 +1,35 @@
+<svg viewBox="0 0 180 48" xmlns="http://www.w3.org/2000/svg">
+  <!--
+    CONCEPT E: DELTA (Change/Acceleration)
+    Three triangles arranged to suggest both "3" and acceleration.
+    Delta symbol represents change - core to RAD.
+    Modern, bold, memorable.
+  -->
+  <defs>
+    <linearGradient id="deltaGrad" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#059669"/>
+      <stop offset="50%" stop-color="#10b981"/>
+      <stop offset="100%" stop-color="#34d399"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Logomark: Three triangles/deltas -->
+  <g id="mark">
+    <!-- Triangle 1 (top) -->
+    <polygon points="24,4 36,20 12,20" fill="#34d399"/>
+    <!-- Triangle 2 (middle, inverted) -->
+    <polygon points="12,22 36,22 24,36" fill="#10b981"/>
+    <!-- Triangle 3 (bottom accent) -->
+    <polygon points="18,38 30,38 24,44" fill="#059669"/>
+  </g>
+
+  <!-- Typography -->
+  <text x="50" y="34"
+        font-family="system-ui, -apple-system, sans-serif"
+        font-size="30" font-weight="700" fill="currentColor"
+        letter-spacing="-1.5">3IT</text>
+  <text x="107" y="34"
+        font-family="system-ui, -apple-system, sans-serif"
+        font-size="30" font-weight="400" fill="#10b981"
+        letter-spacing="-1">.dev</text>
+</svg>

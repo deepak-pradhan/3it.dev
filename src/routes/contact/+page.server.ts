@@ -3,6 +3,37 @@ import { z } from 'zod';
 import type { Actions } from './$types';
 import nodemailer from 'nodemailer';
 import { env } from '$env/dynamic/private';
+import { dev } from '$app/environment';
+import { checkRateLimit, getRateLimitKey, RATE_LIMITS } from '$lib/server/rate-limit';
+import { createContactUsHistory } from '$lib/server/db';
+
+/**
+ * Escape HTML special characters to prevent XSS in email templates
+ */
+function escapeHtml(text: string): string {
+  const htmlEntities: Record<string, string> = {
+    '&': '&amp;',
+    '<': '&lt;',
+    '>': '&gt;',
+    '"': '&quot;',
+    "'": '&#x27;'
+  };
+  return text.replace(/[&<>"']/g, (char) => htmlEntities[char]);
+}
+
+/**
+ * Sanitize input by removing HTML tags to prevent stored XSS
+ */
+function sanitizeInput(text: string): string {
+  return text.replace(/<[^>]*>/g, '').trim();
+}
+
+/**
+ * Sanitize email header values to prevent header injection attacks
+ */
+function sanitizeEmailHeader(text: string): string {
+  return text.replace(/[\r\n]/g, '').trim();
+}
 
 const contactSchema = z.object({
   name: z.string().min(2, 'Name must be at least 2 characters'),
@@ -33,6 +64,16 @@ function getTransporter() {
 
 export const actions: Actions = {
   default: async ({ request }) => {
+    // Rate limiting check
+    const rateLimitKey = getRateLimitKey(request, 'contact');
+    const rateLimitResult = checkRateLimit(rateLimitKey, RATE_LIMITS.contact);
+    if (!rateLimitResult.allowed) {
+      const minutes = Math.ceil(rateLimitResult.resetIn / 60000);
+      return fail(429, {
+        error: `Too many requests. Please try again in ${minutes} minute${minutes > 1 ? 's' : ''}.`
+      });
+    }
+
     const formData = await request.formData();
     const data = Object.fromEntries(formData);
 
@@ -44,17 +85,29 @@ export const actions: Actions = {
 
     const { name, email, company, message } = parsed.data;
 
+    // Escape all user inputs to prevent XSS
+    const safeName = escapeHtml(name);
+    const safeEmail = escapeHtml(email);
+    const safeCompany = company ? escapeHtml(company) : '';
+    const safeMessage = escapeHtml(message);
+
     try {
       const transporter = getTransporter();
-      const fromAddress = env.SMTP_FROM || env.SMTP_USER || 'noreply@3it.dev';
-      const adminEmail = env.ADMIN_EMAIL || 'deepak.pradhan@gmail.com';
+      const fromAddress = env.SMTP_FROM || env.SMTP_USER;
+      if (!fromAddress) {
+        throw new Error('Missing SMTP_FROM or SMTP_USER configuration');
+      }
+      const adminEmail = env.ADMIN_EMAIL;
+      if (!adminEmail) {
+        throw new Error('Missing ADMIN_EMAIL configuration');
+      }
 
-      // Send notification to admin
+      // Send notification to admin (sanitize headers to prevent injection)
       await transporter.sendMail({
         from: fromAddress,
         to: adminEmail,
-        replyTo: email,
-        subject: `[Contact] ${company ? `${company} - ` : ''}${name}`,
+        replyTo: sanitizeEmailHeader(email),
+        subject: sanitizeEmailHeader(`[Contact] ${safeCompany ? `${safeCompany} - ` : ''}${safeName}`),
         html: `
           <!DOCTYPE html>
           <html>
@@ -80,20 +133,20 @@ export const actions: Actions = {
 
               <div class="details">
                 <div class="row">
-                  <span class="label">Name:</span> ${name}
+                  <span class="label">Name:</span> ${safeName}
                 </div>
                 <div class="row">
-                  <span class="label">Email:</span> <a href="mailto:${email}">${email}</a>
+                  <span class="label">Email:</span> <a href="mailto:${safeEmail}">${safeEmail}</a>
                 </div>
-                ${company ? `<div class="row"><span class="label">Company:</span> ${company}</div>` : ''}
+                ${safeCompany ? `<div class="row"><span class="label">Company:</span> ${safeCompany}</div>` : ''}
                 <div class="row">
                   <span class="label">Message:</span>
-                  <div class="message-box">${message}</div>
+                  <div class="message-box">${safeMessage}</div>
                 </div>
               </div>
 
               <p style="color: #6b7280; font-size: 14px;">
-                Reply directly to this email to respond to ${name}.
+                Reply directly to this email to respond to ${safeName}.
               </p>
             </div>
           </body>
@@ -127,7 +180,7 @@ export const actions: Actions = {
                 <div class="logo">3IT.dev</div>
               </div>
 
-              <p>Hi ${name},</p>
+              <p>Hi ${safeName},</p>
 
               <p>Thank you for reaching out to us. We've received your message and will get back to you within 24 hours.</p>
 
@@ -147,9 +200,17 @@ export const actions: Actions = {
         `
       });
 
+      // Store contact in database (sanitized to prevent stored XSS)
+      createContactUsHistory({
+        name: sanitizeInput(name),
+        email,
+        company: company ? sanitizeInput(company) : undefined,
+        message: sanitizeInput(message)
+      });
+
       return { success: true };
     } catch (error) {
-      console.error('Error sending contact email:', error);
+      console.error('Error sending contact email:', dev ? error : 'See server logs');
       return fail(500, { error: 'Failed to send message. Please try again.' });
     }
   }

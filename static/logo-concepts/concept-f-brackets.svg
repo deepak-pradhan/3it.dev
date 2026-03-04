@@ -1,0 +1,31 @@
+<svg viewBox="0 0 180 48" xmlns="http://www.w3.org/2000/svg">
+  <!--
+    CONCEPT F: CODE BRACKETS
+    The "3" formed within code brackets < /3 >
+    Speaks directly to developers.
+    Clean, clever, instantly recognizable to the target audience.
+  -->
+
+  <!-- Logomark: Brackets with "3" -->
+  <g id="mark" fill="none" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Opening bracket -->
+    <path d="M 8 8 L 2 24 L 8 40" stroke="#10b981"/>
+
+    <!-- The "3" inside -->
+    <path d="M 16 12 Q 28 12 28 18 Q 28 24 18 24 Q 28 24 28 30 Q 28 36 16 36"
+          stroke="#10b981"/>
+
+    <!-- Closing bracket -->
+    <path d="M 36 8 L 42 24 L 36 40" stroke="#10b981"/>
+  </g>
+
+  <!-- Typography -->
+  <text x="54" y="34"
+        font-family="system-ui, -apple-system, sans-serif"
+        font-size="30" font-weight="700" fill="currentColor"
+        letter-spacing="-1.5">3IT</text>
+  <text x="111" y="34"
+        font-family="system-ui, -apple-system, sans-serif"
+        font-size="30" font-weight="400" fill="#10b981"
+        letter-spacing="-1">.dev</text>
+</svg>

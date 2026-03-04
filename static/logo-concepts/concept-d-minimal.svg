@@ -1,0 +1,28 @@
+<svg viewBox="0 0 180 48" xmlns="http://www.w3.org/2000/svg">
+  <!--
+    CONCEPT D: ULTRA MINIMAL
+    Inspired by Linear, Vercel, Stripe.
+    Just a clean geometric "3" mark with perfect proportions.
+    Confidence through simplicity.
+  -->
+
+  <!-- Logomark: Perfect geometric "3" -->
+  <g id="mark">
+    <!-- Top arc -->
+    <path d="M 8 14 Q 8 6 20 6 Q 32 6 32 14 Q 32 22 20 22"
+          stroke="#10b981" stroke-width="4" fill="none" stroke-linecap="round"/>
+    <!-- Bottom arc -->
+    <path d="M 20 22 Q 32 22 32 32 Q 32 42 20 42 Q 8 42 8 34"
+          stroke="#10b981" stroke-width="4" fill="none" stroke-linecap="round"/>
+  </g>
+
+  <!-- Typography: Bold, tight tracking -->
+  <text x="48" y="34"
+        font-family="system-ui, -apple-system, sans-serif"
+        font-size="30" font-weight="800" fill="currentColor"
+        letter-spacing="-2">3IT</text>
+  <text x="106" y="34"
+        font-family="system-ui, -apple-system, sans-serif"
+        font-size="30" font-weight="400" fill="#10b981"
+        letter-spacing="-1">.dev</text>
+</svg>
