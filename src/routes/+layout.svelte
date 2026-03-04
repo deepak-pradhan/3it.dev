@@ -127,17 +127,17 @@
           <div class="flex gap-8 sm:gap-12">
             <div>
               <div class="text-xs text-gray-400 uppercase tracking-wider mb-3">Products</div>
-              <div class="flex flex-col gap-2 text-sm text-gray-600 dark:text-gray-300">
-                <a href="/products#canvas" class="hover:text-white transition-colors">Business Canvas</a>
-                <a href="/products#phyto" class="hover:text-white transition-colors">Phyto Platform</a>
-                <a href="/products#bcm" class="hover:text-white transition-colors">BCM System</a>
+              <div class="flex flex-col gap-2 text-sm">
+                <a href="/products#canvas" class="text-emerald-500 hover:text-emerald-400 transition-colors">Business Canvas</a>
+                <a href="/products#phyto" class="text-emerald-500 hover:text-emerald-400 transition-colors">Phyto Platform</a>
+                <a href="/products#bcm" class="text-emerald-500 hover:text-emerald-400 transition-colors">BCM System</a>
               </div>
             </div>
 
             <div>
               <div class="text-xs text-gray-400 uppercase tracking-wider mb-3">Contact</div>
-              <div class="flex flex-col gap-2 text-sm text-gray-600 dark:text-gray-300">
-                <a href="/contact" class="hover:text-white transition-colors">
+              <div class="flex flex-col gap-2 text-sm">
+                <a href="/contact" class="text-emerald-500 hover:text-emerald-400 transition-colors">
                   Get in touch
                 </a>
               </div>
